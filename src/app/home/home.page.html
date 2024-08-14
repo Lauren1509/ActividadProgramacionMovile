@@ -1,20 +1,65 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>
-      Blank
+      My Aplication Form
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card>
+    <form [formGroup]="userForm" (ngSubmit)="doRegister()">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-input formControlName="title" class="b-bottom" placeholder="title"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="title.errors && (title.touched || title.dirty)">
+          <ion-col>
+            <ion-text color="danger">Please write a title<br>min 3 characters</ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-input formControlName="description" class="b-bottom" placeholder="description"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="description.errors && (description.touched || description.dirty)">
+          <ion-col>
+            <ion-text color="danger">Please write a description<br>min 10 characters</ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button type="submit" [disabled]="userForm.invalid">Submit</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </ion-card>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <!-- Mostrar mensaje si no hay usuarios -->
+  <ion-card *ngIf="users.length === 0">
+    <ion-card-header>
+      <ion-card-subtitle>Please add some titles and descriptions</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+  
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card *ngFor="let item of users">
+          <ion-card-header>
+            <ion-card-title>{{ item.title }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            {{ item.description }}
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
+
+

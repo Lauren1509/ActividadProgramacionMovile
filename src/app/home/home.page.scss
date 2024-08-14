@@ -25,3 +25,59 @@
 #container a {
   text-decoration: none;
 }
+/* src/app/home/home.page.scss */
+ion-header {
+  --background: #f8f8f8;
+}
+
+ion-toolbar {
+  --background: #e6b0aa;
+  --color: white;
+}
+
+ion-title {
+  font-size: 1.5rem;
+}
+
+ion-card {
+  margin: 40px;
+}
+
+ion-input.b-bottom {
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --border-radius: 4px;
+  --background: #f0f0f0;
+  --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+ion-button {
+  margin-top: 10px;
+  --background: #f2a5f6;
+}
+
+ion-row {
+  margin-bottom: 10px;
+}
+
+ion-text {
+  font-size: 0.875rem;
+}
+
+ion-card-header {
+  background: #f2d7d5;
+  border-bottom: 1px solid #ddd;
+}
+
+ion-card-title {
+  font-size: 1.25rem;
+}
+
+ion-card-content {
+  font-size: 1rem;
+}
+
+ion-card-subtitle {
+  font-size: 1rem;
+  color: #888;
+}
